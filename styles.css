@@ -3,8 +3,11 @@
     width:88%;
     position:absolute;
     top:10%;
+    transition: transform .2s;
     left: 178px;
 }
+
+#book:hover{transform:scale(1.5);}
 
 #form{
     position: absolute;

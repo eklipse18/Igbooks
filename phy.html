@@ -34,7 +34,7 @@
     </div>
 </body>
 <script>
-    var input = document.getElementById("pgno");
+var input = document.getElementById("pgno");
 
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -72,5 +72,19 @@ function decrement() {
   var source = "https://p.calameoassets.com/161109121205-b6cfa5aac151efdfd4fe5af161dec83d/p" + pgno + ".svgz";
   image = document.getElementById("book").src = source;}
 };
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 39) {
+    event.preventDefault();
+    increment();
+  }
+});
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 37) {
+    event.preventDefault();
+    decrement();
+  }
+});
 </script>
 </html>

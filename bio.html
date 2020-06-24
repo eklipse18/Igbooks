@@ -72,5 +72,19 @@ function decrement() {
   var source = "https://p.calameoassets.com/161109121000-85432bac9c19dd1413b833ca8f2836de/p" + pgno + ".svgz";
   image = document.getElementById("book").src = source;}
 };
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 39) {
+    event.preventDefault();
+    increment();
+  }
+});
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 37) {
+    event.preventDefault();
+    decrement();
+  }
+});
 </script>
 </html>

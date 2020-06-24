@@ -5,8 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Woah!</title>
     <link rel="icon" href="assets/book.png" type="image/png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+    .lost-message{
+        font-size: 50px;
+        font-family: Helvetica;
+        position: absolute;
+        top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        color: whitesmoke;
+    }
+    .link{
+        color: #dfeee7;
+        background-color: #16040f;
+        font-size: 50px;
+        text-decoration: none;
+        padding: 15px 30px;
+        position: absolute;
+        top: 50%;
+        left:40% ;
+    }
+    .link:hover{
+        text-decoration: none;
+        background-color: rgb(141, 9, 130);
+        color: white;
+    }
+    .link:visited{
+        text-decoration: none;
+    }
+
+    body{
+        background-image: url('assets/bg-4.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 <body>
-    
+    <span class="lost-message container-fluid ">Looks like the page you are trying to find has been lost in space...</span>
+    <a class="link" href="home.html">Go BACK!!!</a>
 </body>
 </html>

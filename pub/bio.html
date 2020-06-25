@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" href="assets/book.png" type="image/png">
+    <title>Biology Textbook</title>
+</head>
+<script src="bio script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body style="background-color:#BCE5B5;">
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="phy.html">Physics</a></li>
+        <li><a href="bio.html">Biology</a></li>
+        <li><a href="chem.html">Chemistry</a></li>
+        <li><a href="eng.html">English</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+    <h1>The complete IGCSE Biology Textbook!</h1>
+    <div id="whole-book">
+        <img src="https://p.calameoassets.com/161109121000-85432bac9c19dd1413b833ca8f2836de/p1.svgz" id="book"/>
+        <img src="assets/left-arrow.svg" id="left-arrow" onclick="decrement();"/>
+        <img src="assets/right-arrow.svg" id="right-arrow" onclick="increment();"/>
+    </div>
+        <div id="form" onsubmit="return false">
+            <form name="Page">
+            <label for="pgno">Go to page number:</label>
+            <input type="number" id="pgno" name="pgno"><br><br>
+            <p id="error"></p>
+            <input type="button" value="Go!" id="submit" onclick="validateForm()">
+        </form>
+    </div>
+</body>
+<script>
+    var input = document.getElementById("pgno");
+
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("submit").click();
+  }
+});
+
+var pgno = 1;
+var x, text, image;
+
+function validateForm() {
+    pgno = document.forms["Page"]["pgno"].value;
+    // If x is Not a Number or less than one or greater than 10
+    if (pgno < 1 || pgno > 256 || isNaN(pgno)) {
+      text = "Uhh... That page number does not exist...";
+    }else{
+      text="";
+      var source = "https://p.calameoassets.com/161109121000-85432bac9c19dd1413b833ca8f2836de/p" + pgno + ".svgz";
+      image = document.getElementById("book").src = source;
+    }document.getElementById("error").innerHTML = text;
+};
+
+function increment() {
+  if (pgno < 256){
+  pgno ++;
+  var source = "https://p.calameoassets.com/161109121000-85432bac9c19dd1413b833ca8f2836de/p" + pgno + ".svgz";
+  image = document.getElementById("book").src = source;
+  console.log(pgno);}
+};
+
+function decrement() {
+  if (pgno > 1){
+  pgno --;
+  var source = "https://p.calameoassets.com/161109121000-85432bac9c19dd1413b833ca8f2836de/p" + pgno + ".svgz";
+  image = document.getElementById("book").src = source;}
+};
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 39) {
+    event.preventDefault();
+    increment();
+  }
+});
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 37) {
+    event.preventDefault();
+    decrement();
+  }
+});
+</script>
+</html>

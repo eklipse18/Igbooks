@@ -44,7 +44,8 @@ input.addEventListener("keyup", function(event) {
 });
 
 var pgno = 1;
-var x, text, image;
+var x, text;
+var image = document.getElementById('book');
 
 function validateForm() {
     pgno = document.forms["Page"]["pgno"].value;
@@ -54,7 +55,7 @@ function validateForm() {
     }else{
       text="";
       var source = "https://p.calameoassets.com/161109121205-b6cfa5aac151efdfd4fe5af161dec83d/p" + pgno + ".svgz";
-      image = document.getElementById("book").src = source;
+      image.src = source;
     }document.getElementById("error").innerHTML = text;
 };
 
@@ -62,7 +63,7 @@ function increment() {
   if (pgno < 258){
     pgno ++;
     var source = "https://p.calameoassets.com/161109121205-b6cfa5aac151efdfd4fe5af161dec83d/p" + pgno + ".svgz";
-    image = document.getElementById("book").src = source;
+    image.src = source;
   }
 };
 
@@ -70,7 +71,7 @@ function decrement() {
   if (pgno > 1){
   pgno --;
   var source = "https://p.calameoassets.com/161109121205-b6cfa5aac151efdfd4fe5af161dec83d/p" + pgno + ".svgz";
-  image = document.getElementById("book").src = source;}
+  image.src = source;}
 };
 
 document.addEventListener("keyup", function(event) {
@@ -78,13 +79,15 @@ document.addEventListener("keyup", function(event) {
     event.preventDefault();
     increment();
   }
-});
+}, false);
 
 document.addEventListener("keyup", function(event) {
   if (event.keyCode === 37) {
     event.preventDefault();
     decrement();
   }
-});
+}, false);
+
+input.addEventListener('keyup', function(e){e.stopPropagation();}, true)
 </script>
 </html>

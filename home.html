@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="book.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Ubuntu">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Home</title>
 </head>
-<body bgcolor="#FCFFF7">
-	<div style="margin: 40px 100px;">
+<body style="background-color: #FCFFF7 !important">
+	<div class="container">
     	<h1 style="font-family: 'Ubuntu'; font-size: 60px;">The new site is up, sadly not on <b>this</b> domain, But you can find it over here on <a href="http://igcsebooks.herokuapp.com">http://igcsebooks.herokuapp.com</a> 😀</h1>
     	<h5 style="font-family: 'Lato';">Sorry if it's a little slow 😅</h5>
-    	<h6 style="font-family: 'Lato';">Also, you might need to refresh the page sometimes to get it working 😅 x 2</h6>
+    	<h6 style="font-family: 'Lato';">Also, you might need to refresh the page <b>sometimes</b> to get it working 😅😅😅 x 2</h6>
+		<p style="font-size: 40px; font-family: 'Lato Black';">Redirecting you in <b><span id="num"></span></b>...</p>
 	</div>
 </body>
+<script type="text/javascript">
+	var change = document.getElementById('num');
+	var num = 10
+	change.textContent = num;
+
+	var timeout_token = setInterval(decrease, 1200)
+
+	function decrease(){
+		if (num > 1){
+			num --;
+			change.textContent = num;
+		} else {
+			location.assign("http://igcsebooks.herokuapp.com");
+		}
+	}
+
+</script>
 </html>
